@@ -1,23 +1,13 @@
-import { useDispatch } from "react-redux";
-import styles from "./App.module.scss";
+import Header from "./components/Header/Header";
 import { useTypedSelector } from "./hooks/useTypedSelector";
-import { switchTheme } from "./store/action-creators/theme";
+import "./App.scss";
 
 function App() {
     const { theme } = useTypedSelector((state) => state);
 
-    const dispatch = useDispatch();
-
-    const changeTheme = () => {
-        dispatch(switchTheme());
-    };
-
     return (
-        <div id="app">
-            <h1>Hello 66</h1>
-            <h2>{theme.current}</h2>
-
-            <button onClick={changeTheme}>switch theme</button>
+        <div className="app" id={`theme-${theme.current}`}>
+            <Header />
         </div>
     );
 }
