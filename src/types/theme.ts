@@ -8,6 +8,6 @@ export interface ThemeState {
 }
 
 export interface ThemeAction {
-    type: ThemeActionTypes.SWITCH_THEME;
+    type: ThemeActionTypes;
     payload?: "light" | "dark";
 }

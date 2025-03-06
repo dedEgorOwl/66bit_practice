@@ -14,7 +14,7 @@ const initialState: CurrentEmployeeState = {
     },
 };
 
-export const themeReducer = (state: CurrentEmployeeState = initialState, action: CurrentEmployeeAction): CurrentEmployeeState => {
+export const currentEmployeeReducer = (state: CurrentEmployeeState = initialState, action: CurrentEmployeeAction): CurrentEmployeeState => {
     switch (action.type) {
         case CurrentEmployeeActionTypes.SET_CURRENT_EMPLOYEE:
             return { current: action.payload };

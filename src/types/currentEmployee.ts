@@ -17,6 +17,6 @@ export interface CurrentEmployeeState {
 }
 
 export interface CurrentEmployeeAction {
-    type: CurrentEmployeeActionTypes.SET_CURRENT_EMPLOYEE;
+    type: CurrentEmployeeActionTypes;
     payload: CurrentEmployeeState;
 }
