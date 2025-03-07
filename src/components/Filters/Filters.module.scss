@@ -1,0 +1,230 @@
+.container {
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            line-height: auto;
+            user-select: none;
+        }
+
+        .filterDropdowns {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            .dropdownBtn {
+                position: relative;
+                float: right;
+                display: flex;
+                align-items: center;
+                flex-direction: row-reverse;
+                gap: 12px;
+                cursor: pointer;
+                font-size: 20px;
+
+                .chevron {
+                    width: 16px;
+                    height: 7px;
+                    background-size: contain;
+                    background-position: center;
+                }
+
+                .dropdown {
+                    width: 230px;
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 2rem;
+                    padding: 20px;
+                    background-color: var(--primary-background-color);
+                    border-top: 1px solid var(--primary-accent-color);
+                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+                    font-size: 16px;
+
+                    .option {
+                        display: flex;
+                        justify-content: space-between;
+                        word-break: keep-all;
+                        user-select: none;
+                        padding: 8px;
+
+                        .checkbox {
+                            width: 19px;
+                            height: 19px;
+                            background-size: contain;
+                            background-position: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .search {
+        width: calc(100% - 40px);
+        height: 40px;
+        padding: 0 20px;
+        background-color: transparent;
+        outline: none;
+        border: 0.5px solid var(--primary-border-color);
+        border-radius: 5px;
+        font-size: 20px;
+        color: var(--primary-text-color);
+
+        &::placeholder {
+            color: var(--primary-placeholder-color);
+        }
+    }
+
+    .bottom {
+        margin-top: 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 0;
+
+        .activeFilters {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary-text-color);
+            user-select: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            width: 50%;
+
+            .activeFilterList {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                width: 65%;
+                overflow-y: hidden;
+                flex-wrap: nowrap;
+
+                .filter {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 10px;
+                    background-color: var(--primary-background-color);
+                    color: var(--primary-text-color);
+                    font-size: 16px;
+                    font-weight: 400;
+                    border-radius: 5px;
+                    word-break: keep-all;
+
+                    .cancel {
+                        width: 10px;
+                        height: 10px;
+                        background-position: center;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+
+        .searchBtn {
+            user-select: none;
+            cursor: pointer;
+            background-color: var(--primary-accent-color);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 48px;
+            border-radius: 8px;
+            transition: 0.2s ease;
+
+            &:active {
+                background-color: var(--secondary-accent-color);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 3840px) {
+}
+
+@media screen and (max-width: 1920px) {
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        .top {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .filterDropdowns {
+                margin: 14px 0;
+                gap: 12px;
+
+                .dropdownBtn {
+                    font-size: 12px;
+                    gap: 8px;
+
+                    .chevron {
+                        width: 10px;
+                        height: 5px;
+                    }
+
+                    .dropdown {
+                        gap: 12px;
+                        .option {
+                            padding: 0;
+                            width: auto;
+                            display: flex;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+
+            input {
+                padding: 10px;
+                height: calc(34px - 20px);
+
+                &::placeholder {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 0;
+
+            .activeFilters {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 14px;
+                gap: 12px;
+
+                .activeFilterList {
+                    width: 100%;
+                    gap: 16px;
+                    .filter {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .searchBtn {
+                margin-top: 16px;
+                width: 100%;
+                font-size: 12px;
+                padding: 6px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

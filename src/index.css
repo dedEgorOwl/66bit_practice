@@ -9,8 +9,11 @@
     --primary-border-color: #b0b0b0;
 
     --primary-accent-color: #155da4;
+    --secondary-accent-color: #2d6aa7;
 
     --primary-outline-color: #155ca45d;
+
+    --primary-placeholder-color: #b0b0b0;
 }
 
 #theme-dark {
@@ -23,8 +26,11 @@
     --primary-border-color: #b0b0b0;
 
     --primary-accent-color: #155da4;
+    --secondary-accent-color: #2d6aa7;
 
     --primary-outline-color: #00000059;
+
+    --primary-placeholder-color: #b0b0b0;
 }
 
 html,

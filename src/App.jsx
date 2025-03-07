@@ -7,11 +7,12 @@ import { useDispatch } from "react-redux";
 import { setTheme } from "./store/action-creators/theme";
 import { setWindowWidth } from "./store/action-creators/windowWidth";
 import BreadCrumbs from "./components/BreadCrumbs/Breadcrumbs";
+import Filters from "./components/Filters/Filters";
 
 export const cookies = new Cookies();
 
 function App() {
-    const { theme } = useTypedSelector((state) => state);
+    const theme = useTypedSelector((state) => state.theme.current);
 
     const dispatch = useDispatch();
 
@@ -32,9 +33,10 @@ function App() {
     }, [setWindowWidth]);
 
     return (
-        <div className="app" id={`theme-${theme.current}`}>
+        <div className="app" id={`theme-${theme}`}>
             <Header />
             <BreadCrumbs />
+            <Filters />
         </div>
     );
 }
