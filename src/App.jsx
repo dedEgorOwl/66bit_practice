@@ -17,7 +17,11 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setTheme(cookies.get("current_theme")));
+        if (cookies.get("current_theme") === "light" || cookies.get("current_theme") === "dark") {
+            dispatch(setTheme(cookies.get("current_theme")));
+        } else {
+            dispatch(setTheme("light"));
+        }
 
         function handleResize() {
             dispatch(setWindowWidth(window.innerWidth));

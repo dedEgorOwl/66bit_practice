@@ -160,6 +160,10 @@
             flex-direction: column;
             align-items: flex-start;
 
+            .search {
+                font-size: 12px;
+            }
+
             .filterDropdowns {
                 margin: 14px 0;
                 gap: 12px;
@@ -174,9 +178,8 @@
                     }
 
                     .dropdown {
-                        gap: 12px;
                         .option {
-                            padding: 0;
+                            padding: 6px 0;
                             width: auto;
                             display: flex;
                             font-size: 12px;
@@ -210,6 +213,8 @@
                 .activeFilterList {
                     width: 100%;
                     gap: 16px;
+                    height: 34px;
+
                     .filter {
                         font-size: 12px;
                     }
