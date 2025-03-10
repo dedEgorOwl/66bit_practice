@@ -3,17 +3,15 @@ export enum CurrentEmployeeActionTypes {
 }
 
 export interface CurrentEmployeeState {
-    current: {
-        id: Number | null;
-        name: String | null;
-        photo: String | null;
-        phone: String | null;
-        gender: String | null;
-        position: String | null;
-        stack: Array<String> | null;
-        birthdate: String | null;
-        dateOfEmployment: String | null;
-    };
+    id: Number | null;
+    name: String | null;
+    photo: String | null;
+    phone: String | null;
+    gender: String | null;
+    position: String | null;
+    stack: Array<String> | null;
+    birthdate: String | null;
+    dateOfEmployment: String | null;
 }
 
 export interface CurrentEmployeeAction {

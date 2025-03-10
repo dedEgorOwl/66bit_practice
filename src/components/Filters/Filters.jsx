@@ -1,8 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import styles from "./Filters.module.scss";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { useDispatch } from "react-redux";
+import { setEmployeeList } from "../../store/action-creators/employeeList";
 
 const Filters = () => {
+    const dispatch = useDispatch();
+
     const positionDropdownRef = useRef();
     const sexDropdownRef = useRef();
     const stackDropdownRef = useRef();
@@ -61,13 +65,34 @@ const Filters = () => {
 
     const [searchInputValue, setSearchInputValue] = useState("");
 
+    const fetchEmployeeList = () => {
+        dispatch(
+            setEmployeeList({
+                positionOptions: { ...positionOptions },
+                sexOptions: { ...sexOptions },
+                stackOptions: { ...stackOptions },
+                searchInput: searchInputValue,
+            })
+        );
+    };
+
     return (
         <>
             <div className="wrapper">
                 <div className={styles.container}>
                     <div className={styles.top}>
                         <h1>Список сотрудников</h1>
-                        {windowWidth <= 320 && <input type="text" className={styles.search} placeholder="Поиск" />}
+                        {windowWidth <= 320 && (
+                            <input
+                                type="text"
+                                className={styles.search}
+                                placeholder="Поиск"
+                                onChange={(e) => {
+                                    setSearchInputValue(e.target.value);
+                                }}
+                                value={searchInputValue}
+                            />
+                        )}
                         <div className={styles.filterDropdowns}>
                             <div className={styles.dropdownBtn} ref={positionDropdownRef} style={{ flexDirection: windowWidth <= 320 ? "row" : "" }}>
                                 {windowWidth > 320 && <div className={styles.chevron} style={{ backgroundImage: isPositionDropdownActive ? `url("/chevron_blue_up.svg")` : `url("/chevron_blue_down.svg")` }}></div>}
@@ -165,7 +190,17 @@ const Filters = () => {
                             </div>
                         </div>
                     </div>
-                    {windowWidth > 320 && <input type="text" className={styles.search} placeholder="Поиск" />}
+                    {windowWidth > 320 && (
+                        <input
+                            type="text"
+                            className={styles.search}
+                            placeholder="Поиск"
+                            onChange={(e) => {
+                                setSearchInputValue(e.target.value);
+                            }}
+                            value={searchInputValue}
+                        />
+                    )}
                 </div>
             </div>
             <div className="wrapper" style={{ backgroundColor: "var(--secondary-background-color)" }}>
@@ -226,10 +261,9 @@ const Filters = () => {
                         </div>
                         <div
                             className={styles.searchBtn}
-                            onChange={(e) => {
-                                setSearchInputValue(e.target.value);
+                            onClick={() => {
+                                fetchEmployeeList();
                             }}
-                            value={searchInputValue}
                         >
                             Найти
                         </div>

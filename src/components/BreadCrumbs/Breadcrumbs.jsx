@@ -3,7 +3,7 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const BreadCrumbs = () => {
     const windowWidth = useTypedSelector((state) => state.windowWidth.current);
-    const currentEmployee = useTypedSelector((state) => state.currentEmployee.current);
+    const currentEmployee = useTypedSelector((state) => state.currentEmployee);
 
     return (
         <div className="wrapper">
